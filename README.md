@@ -1,115 +1,117 @@
 # GraphRAG for Open-Domain Question Answering
 
-> A University of Bonn lab project exploring how knowledge graphs and community-level retrieval can improve question answering over a large text collection.
+This is my University of Bonn lab project on graph-based retrieval-augmented generation. I built an end-to-end pipeline that converts unstructured text into a knowledge graph, groups related entities into communities, retrieves relevant community summaries, and generates grounded answers to questions.
 
-This repository contains my implementation of a GraphRAG pipeline built on the SQuAD dataset. Instead of treating every passage as an isolated document, the pipeline extracts entities and relationships, connects them in a knowledge graph, groups related entities into communities, and uses those community summaries as retrieval context for an instruction-tuned language model.
+The project uses the SQuAD dataset as its test bed. My main goal was to understand whether explicit entity relationships and community-level context can improve retrieval compared with treating every passage as an isolated document.
 
-The project covers the full experimental workflow: data preparation, prompt design, graph construction, community detection, dense and sparse retrieval, answer generation, evaluation, and graph visualization.
+## Project summary
 
-## Project at a glance
+- 10,570 SQuAD validation questions consolidated into 2,067 unique contexts
+- 11,684 entities and 14,340 relationships in the saved validation graph
+- 6,288 saved community-summary records
+- Semantic, dense, and hybrid retrieval strategies
+- BLEU, BERTScore, and ROUGE evaluation
+- Checkpointed graph construction for long-running GPU jobs
 
-- **10,570** SQuAD validation questions consolidated into **2,067 unique contexts**
-- **11,684 entities** and **14,340 relationships** in the saved validation graph
-- **6,288 community-summary records** generated for retrieval
-- Three retrieval strategies explored: semantic similarity, FAISS dense search, and weighted BM25 + FAISS retrieval
-- Answer quality evaluated with BLEU, BERTScore, and ROUGE
-- Long-running graph construction can resume from a saved checkpoint
+## Pipeline
 
-## How it works
+The system follows this sequence:
 
-```mermaid
-flowchart LR
-    A[SQuAD validation set] --> B[Merge questions by context]
-    B --> C[Overlapping text chunks]
-    C --> D[Entity types, entities and relations]
-    D --> E[Entity summaries]
-    E --> F[NetworkX knowledge graph]
-    F --> G[Louvain communities]
-    G --> H[Community summaries]
-    H --> I[BM25 + FAISS retrieval]
-    I --> J[Chunk-level answers and relevance scores]
-    J --> K[Single global answer]
-    K --> L[BLEU, BERTScore and ROUGE]
+```text
+SQuAD contexts
+    -> overlapping text chunks
+    -> entity types, entities, and relationships
+    -> entity summaries
+    -> NetworkX knowledge graph
+    -> Louvain communities
+    -> community summaries
+    -> BM25 and FAISS retrieval
+    -> chunk-level candidate answers
+    -> one global answer
 ```
 
-### 1. Dataset preparation
+### Dataset preparation
 
-The pipeline loads the SQuAD validation split from Hugging Face and groups rows that share the same context. Each context is divided into overlapping, sentence-aware chunks so that extraction remains within the model's context window while retaining information around chunk boundaries.
+The validation split is loaded from Hugging Face and grouped by context. This reduces duplicate processing because several SQuAD questions can refer to the same passage. Long passages are divided into overlapping chunks so that extraction remains within the model context window.
 
-### 2. Knowledge graph construction
+### Knowledge graph construction
 
-For each context, Llama 3.2 3B Instruct is prompted to:
+I used Llama 3.2 3B Instruct for several structured extraction tasks:
 
-1. infer entity types appropriate for the current domain;
-2. extract entities and weighted relationships in a structured format;
-3. consolidate descriptions into an entity-level summary; and
-4. create a domain-specific persona to guide summarization.
+1. Identify entity types relevant to the current subject.
+2. Extract entities and weighted relationships.
+3. Consolidate descriptions into entity summaries.
+4. Produce summaries for groups of related entities.
 
-Entities become graph nodes with type and description attributes. Relationships become weighted edges carrying a natural-language explanation of the connection.
+Entities are stored as NetworkX nodes with type and description attributes. Relationships are stored as edges with a natural-language description and strength value.
 
-### 3. Incremental community detection
+### Community detection and checkpointing
 
-Local graphs are composed into a global NetworkX graph. Louvain community detection is applied to newly affected parts of the graph, and only affected community summaries are regenerated. The current dataset iteration, graph, and summaries are saved after every pass, allowing an interrupted GPU job to continue instead of starting over.
+Each local graph is merged into a global graph. Louvain community detection is applied to the affected portion, and summaries are regenerated only for communities changed by the new data.
 
-### 4. Retrieval and answer generation
+Graph construction is expensive because it requires several model calls for every context. The pipeline therefore saves its graph, summaries, and current dataset position after each iteration. An interrupted run can continue from its last checkpoint.
 
-The repository contains several retrieval experiments:
+### Retrieval and generation
 
-- **Semantic retrieval:** SentenceTransformer embeddings and cosine similarity
-- **Dense retrieval:** FAISS indexes over community-summary embeddings
-- **Hybrid retrieval:** a weighted combination of normalized BM25 and FAISS scores
+I explored three retrieval approaches:
 
-The hybrid pipeline retrieves a broad candidate set from both indexes, normalizes the lexical and semantic scores, and ranks the combined results. Retrieved summaries are split into manageable chunks, answered independently, and assigned relevance scores. The highest-scoring intermediate answers are then reduced into one concise global answer.
+- SentenceTransformer embeddings with semantic similarity
+- FAISS dense-vector search
+- A weighted hybrid of BM25 lexical scores and FAISS semantic scores
 
-### 5. Evaluation and visualization
+For hybrid retrieval, both score ranges are normalized before they are combined. The best community summaries are divided into smaller chunks and passed to the language model. Each candidate answer receives a relevance score, and the strongest candidates are reduced into one concise answer.
 
-Generated answers are compared with SQuAD references using BLEU, BERTScore, and ROUGE. The graph can be inspected as GEXF in tools such as Gephi, or through the included PyVis HTML visualization.
+## Technologies
 
-## Engineering highlights
-
-- Designed multi-stage prompts for entity typing, relation extraction, persona generation, and hierarchical summarization
-- Added parsing, fallback values, and retry logic around non-deterministic model output
-- Represented graph metadata in a portable GEXF format
-- Implemented resumable processing for long-running model inference jobs
-- Compared lexical and semantic retrieval instead of relying on a single similarity method
-- Used candidate-set fusion and min-max score normalization for hybrid ranking
-- Built a map-reduce-style answer generation flow for context that does not fit in one prompt
-- Kept intermediate artifacts so that graph construction, retrieval, and evaluation can be inspected independently
+- Python, pandas, and NumPy
+- PyTorch and Hugging Face Transformers
+- NetworkX and Louvain community detection
+- SentenceTransformers and FAISS
+- BM25 through `rank-bm25`
+- PyVis and Matplotlib
+- BLEU, BERTScore, and ROUGE
 
 ## Repository structure
 
-| Path | Purpose |
-| --- | --- |
-| `pipeline/run_pipeline.py` | End-to-end dataset-to-graph pipeline and checkpoint handling |
-| `pipeline/preprocessing/` | Chunking, entity and relation extraction, graph creation, and summaries |
-| `pipeline/utils/prompts.py` | Prompt templates used throughout graph construction |
-| `pipeline/utils/community_detection/` | Leiden/community quality utilities explored during development |
-| `RAG/` | Semantic, FAISS, and hybrid retrieval experiments plus evaluation scripts |
-| `similarity/` | Standalone hybrid-search prototype for inspecting retrieval rankings |
-| `generation/` | Earlier answer-generation prototypes |
-| `output/` | Saved graph, summaries, query results, checkpoints, and visualization |
-| `data_exploration.ipynb` | Dataset exploration and graph-analysis notebook |
+```text
+graphrag/
+|-- pipeline/                 Core graph-construction pipeline
+|   |-- preprocessing/       Chunking, extraction, and summarization
+|   |-- generation/          Answer-generation implementation
+|   |-- evaluation/          Evaluation utilities
+|   `-- utils/               Prompts, data loading, and graph utilities
+|-- RAG/                      Retrieval and answer-generation experiments
+|-- experiments/              Earlier standalone prototypes
+|   |-- generation/
+|   `-- similarity/
+|-- output/                   Validation graph, summaries, and results
+|-- scripts/                  Environment helper scripts
+|-- data_exploration.ipynb    Dataset and graph exploration
+|-- evaluate_results.py       Evaluation entry point
+|-- prompt_result.txt         Saved prompt output from early development
+`-- main.py                   Graph-pipeline entry point
+```
 
-## Saved artifacts
+The experimental scripts are kept separate from the core pipeline so that the development path remains visible without obscuring the main implementation.
 
-The repository includes outputs from the validation-set experiment, so the result can be inspected without rebuilding the full graph.
+## Saved results
 
-| Artifact | Description |
-| --- | --- |
-| [`output/graph_valid.gexf`](output/graph_valid.gexf) | Knowledge graph with 11,684 nodes and 14,340 edges |
-| [`output/graph_valid.html`](output/graph_valid.html) | Interactive PyVis graph visualization |
-| [`output/community_summaries_valid.json`](output/community_summaries_valid.json) | Community-level retrieval context |
-| [`output/query_results.json`](output/query_results.json) | Questions, chunk relevance scores, and generated answers |
-| [`RAG/metrics_results.txt`](RAG/metrics_results.txt) | BLEU, BERTScore, and ROUGE results from an experimental run |
-| [`data_exploration.ipynb`](data_exploration.ipynb) | Dataset statistics and graph exploration |
+The repository includes the main validation artifacts, so the graph and generated answers can be inspected without rebuilding the full dataset:
 
-## Reproducing the experiment
+- [`output/graph_valid.gexf`](output/graph_valid.gexf): knowledge graph with 11,684 nodes and 14,340 edges
+- [`output/graph_valid.html`](output/graph_valid.html): interactive PyVis visualization
+- [`output/community_summaries_valid.json`](output/community_summaries_valid.json): community-level retrieval context
+- [`output/query_results.json`](output/query_results.json): questions, relevance scores, and generated answers
+- [`RAG/metrics_results.txt`](RAG/metrics_results.txt): recorded evaluation metrics
+- [`data_exploration.ipynb`](data_exploration.ipynb): dataset and graph exploration
 
-The original runs were carried out on university GPU infrastructure. A CUDA-capable GPU is strongly recommended because graph construction performs several Llama inference calls per context. Access to the gated Llama model on Hugging Face is also required.
+GitHub may not preview the larger GEXF, HTML, JSON, or notebook files. They can still be downloaded and opened locally with Gephi, a browser, or Jupyter.
 
-### 1. Create an environment
+## Running the project
 
-Python 3.10 or newer is recommended.
+Python 3.10 or newer and a CUDA-capable GPU are recommended. Access to the gated Llama model on Hugging Face is required.
+
+Create and activate an environment:
 
 ```bash
 python -m venv .venv
@@ -118,17 +120,13 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-On Windows, activate the environment with `.venv\Scripts\activate`.
+On Windows, activate it with `.venv\Scripts\activate`.
 
-The checked-in requirements file records the base lab environment. The graph, retrieval, generation, evaluation, and visualization scripts additionally use the following packages:
+The original requirements file records the base lab environment. The complete workflow also uses:
 
 ```bash
 python -m pip install torch transformers sentence-transformers networkx python-louvain python-dotenv faiss-cpu rank-bm25 evaluate bert-score rouge-score nltk pyvis matplotlib
 ```
-
-For a CUDA-enabled FAISS or PyTorch installation, use versions compatible with the local CUDA toolkit.
-
-### 2. Configure the graph pipeline
 
 Create a `.env` file in the project root:
 
@@ -139,37 +137,32 @@ COMMUNITIES_FILE=output/community_summaries_valid.json
 STATUS_FILE=output/status_valid.json
 ```
 
-The `.env` file is ignored by Git. File paths and CUDA device assignments in the standalone scripts under `RAG/` reflect the original lab environment and may need to be adjusted before running them elsewhere.
-
-### 3. Build or resume the graph
+Then start or resume graph construction:
 
 ```bash
 python main.py
 ```
 
-`main.py` starts the pipeline with checkpoint loading enabled. If the graph, summary, and status files exist, processing resumes from the saved iteration. To rebuild from scratch, call `run_pipeline(load=False)` and point the environment variables to new output files.
+The standalone scripts preserve some paths and CUDA settings from the original university GPU environment. Those values may need to be adjusted when reproducing the experiments on another machine.
 
-## Experimental results
+## Evaluation snapshot
 
-The recorded end-to-end run produced the following generation metrics:
+The recorded end-to-end run produced these baseline scores:
 
-| Metric | Score |
-| --- | ---: |
-| BLEU-1 | 0.1503 |
-| BERTScore F1 | 0.1150 |
-| ROUGE-1 F1 | 0.1148 |
-| ROUGE-2 F1 | 0.0489 |
-| ROUGE-L F1 | 0.1103 |
+- BLEU-1: 0.1503
+- BERTScore F1: 0.1150
+- ROUGE-1 F1: 0.1148
+- ROUGE-2 F1: 0.0489
+- ROUGE-L F1: 0.1103
 
-I treat these as baseline results rather than a final benchmark. The experiment showed that building a large graph is only one part of the problem: entity normalization, retrieval quality, and strict answer grounding have a major effect on downstream performance.
+I view these as diagnostic results rather than a final benchmark. The experiment showed that entity normalization and retrieval quality strongly affect the generated answer. Inconsistent names or types fragment the graph, which produces weaker communities and less useful retrieval context.
 
-## What I would improve next
+## Next steps
 
-- Normalize aliases, casing, and entity types before inserting nodes into the global graph
-- Replace regex-based response parsing with constrained structured generation
-- Cache entity extraction and summary embeddings to shorten repeated experiments
-- Add retrieval metrics such as Recall@k and MRR before evaluating answer generation
-- Compare the graph pipeline against a text-only RAG baseline on the same question set
-- Move experiment settings into a single configuration file and add automated tests for each pipeline stage
-
-The most useful part of this project was seeing how data quality propagates through an end-to-end retrieval system. Small extraction inconsistencies create fragmented communities, which then affect retrieval and finally the generated answer. That made the project as much about careful pipeline design and evaluation as it was about language models.
+- Normalize aliases, casing, and entity types before graph insertion
+- Replace regex response parsing with constrained structured generation
+- Cache extraction results and summary embeddings
+- Add Recall@k and MRR for retrieval evaluation
+- Compare against a text-only RAG baseline on the same questions
+- Move experiment settings into a central configuration file
+- Add automated tests for each pipeline stage
