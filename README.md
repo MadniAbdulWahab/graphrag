@@ -25,7 +25,7 @@ SQuAD contexts
     -> NetworkX knowledge graph
     -> Louvain communities
     -> community summaries
-    -> BM25 and FAISS retrieval
+    -> semantic, dense, or hybrid retrieval
     -> chunk-level candidate answers
     -> one global answer
 ```
@@ -51,15 +51,35 @@ Each local graph is merged into a global graph. Louvain community detection is a
 
 Graph construction is expensive because it requires several model calls for every context. The pipeline therefore saves its graph, summaries, and current dataset position after each iteration. An interrupted run can continue from its last checkpoint.
 
-### Retrieval and generation
+### Query-time retrieval and generation
 
-I explored three retrieval approaches:
+The query-time pipeline I implemented connects the pre-computed graph summaries to each user's question. It consists of five stages:
 
-- SentenceTransformer embeddings with semantic similarity
+1. **Load community summaries.** The summaries created during graph indexing are loaded into memory and organized for retrieval.
+2. **Filter relevant summaries.** The question and every summary are embedded with SentenceTransformer's `all-MiniLM-L6-v2` model. Cosine similarity is used to select the top-N summaries most closely related to the question.
+3. **Prepare context chunks.** Retrieved summaries are divided into manageable chunks so that the relevant content fits within the language model's context window without silently truncating the input.
+4. **Generate intermediate answers.** Each chunk is processed with a query-focused prompt that instructs the model to rely only on the supplied context. The response contains both an answer and a relevance score from 0 to 100.
+5. **Reduce to a global answer.** Zero- and low-scoring candidates are discarded. The remaining answers are ranked, combined within a token budget, and passed through the model again to produce one concise final response.
+
+This map-and-reduce design allowed the system to work with more retrieved context than could fit into a single prompt while keeping the final answer focused on the original question.
+
+### Retrieval experiments and generation tuning
+
+I initially evaluated FAISS for similarity search. For the shorter, structured collection of community summaries, direct SentenceTransformer similarity offered sufficient speed and retrieval quality with less indexing complexity. I later extended the experiments to compare:
+
+- SentenceTransformer embeddings with cosine similarity
 - FAISS dense-vector search
 - A weighted hybrid of BM25 lexical scores and FAISS semantic scores
 
-For hybrid retrieval, both score ranges are normalized before they are combined. The best community summaries are divided into smaller chunks and passed to the language model. Each candidate answer receives a relevance score, and the strongest candidates are reduced into one concise answer.
+In the hybrid version, a broad candidate set is retrieved from both BM25 and FAISS. Their scores are normalized before being combined into a single ranking.
+
+For answer generation, I used Llama 3.2 3B Instruct and tuned the decoding settings to favor stable, relevant responses:
+
+- Beam search with 8 beams
+- Temperature of 0.4
+- Repetition penalty of 1.1
+
+Beam search explored several candidate sequences, while the lower temperature reduced randomness and made repeated evaluations more consistent.
 
 ## Technologies
 
@@ -145,24 +165,29 @@ python main.py
 
 The standalone scripts preserve some paths and CUDA settings from the original university GPU environment. Those values may need to be adjusted when reproducing the experiments on another machine.
 
-## Evaluation snapshot
+## Evaluation and findings
 
-The recorded end-to-end run produced these baseline scores:
+The query-time evaluation documented in my January 2025 report used BLEU, BERTScore, and ROUGE to compare generated answers with the SQuAD references:
 
 - BLEU-1: 0.1503
+- BERTScore precision: 0.1354
+- BERTScore recall: 0.1004
 - BERTScore F1: 0.1150
 - ROUGE-1 F1: 0.1148
 - ROUGE-2 F1: 0.0489
 - ROUGE-L F1: 0.1103
 
-I view these as diagnostic results rather than a final benchmark. The experiment showed that entity normalization and retrieval quality strongly affect the generated answer. Inconsistent names or types fragment the graph, which produces weaker communities and less useful retrieval context.
+The evaluation produced two useful findings. First, semantic filtering reduced irrelevant content, and the chunking stage processed the selected context efficiently within the model's input limit. Second, downstream answer quality depended heavily on the information preserved in the community summaries. If a relevant detail was absent or a sparse summary ranked too highly, the generation stage could not construct a complete answer.
 
-## Next steps
+The report also showed that the original prompts handled direct questions better than nuanced questions requiring several pieces of context. These observations gave me a clear diagnosis across the pipeline rather than treating generation quality as an isolated model problem: graph construction affected summary quality, summary quality affected retrieval, and retrieval determined what evidence was available for the final answer.
 
-- Normalize aliases, casing, and entity types before graph insertion
-- Replace regex response parsing with constrained structured generation
-- Cache extraction results and summary embeddings
-- Add Recall@k and MRR for retrieval evaluation
-- Compare against a text-only RAG baseline on the same questions
-- Move experiment settings into a central configuration file
-- Add automated tests for each pipeline stage
+## Project outcome
+
+The January 2025 report captured my initial query-time implementation and its first full evaluation. I subsequently took ownership of the complete pipeline and extended the final study with:
+
+- Entity normalization across aliases, casing, and generated entity types
+- Constrained structured generation in place of regex-only response parsing
+- Cached extraction results and summary embeddings for repeated experiments
+- Retrieval evaluation with Recall@k and Mean Reciprocal Rank
+- A direct comparison with a text-only RAG baseline on the same question set
+
