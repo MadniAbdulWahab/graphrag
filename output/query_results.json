@@ -1,0 +1,898 @@
+[
+    {
+        "query": "Who led the committee established by Seaman?",
+        "scores": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            20,
+            80,
+            0
+        ],
+        "global_answer": "No information is available to answer this question."
+    },
+    {
+        "query": "When was this committee by Seaman established?",
+        "scores": [
+            20,
+            80,
+            60,
+            20,
+            60,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "No valid answer found in response."
+    },
+    {
+        "query": "Which NASA faction came around first to support the LOR?",
+        "scores": [
+            50,
+            60,
+            0,
+            0,
+            50,
+            20,
+            0,
+            0,
+            20,
+            20
+        ],
+        "global_answer": "No valid answer found."
+    },
+    {
+        "query": "Who was hired to be the deputy director of the Office of Manned Space Flight?",
+        "scores": [
+            20,
+            70,
+            80,
+            80,
+            80,
+            80,
+            0,
+            0,
+            0,
+            80
+        ],
+        "global_answer": "No valid answer found."
+    },
+    {
+        "query": "Which NASA location came around last to the idea of the LOR?",
+        "scores": [
+            80,
+            0,
+            0,
+            40,
+            20,
+            0,
+            0,
+            0,
+            50,
+            80
+        ],
+        "global_answer": "No valid answer found in response."
+    },
+    {
+        "query": "\"Bairn\" and \"hyem\" have origins from what culture?",
+        "scores": [
+            90,
+            0,
+            0,
+            0,
+            0,
+            50,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "The Geordie culture."
+    },
+    {
+        "query": "Where are some words from the Geordia dialect used?",
+        "scores": [
+            100,
+            100,
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            90
+        ],
+        "global_answer": "The words \"Bairn\", \"Gannin\", \"Haway\", \"Pet\" are commonly used in the Geordie dialect in Northeast England, particularly in Newcastle."
+    },
+    {
+        "query": "What folks are likely to use words like \"howay\" and \"hadaway\"?",
+        "scores": [
+            90,
+            95,
+            90,
+            100,
+            80,
+            90,
+            0,
+            100,
+            0,
+            0
+        ],
+        "global_answer": "People from the North East of England, particularly from the Newcastle upon Tyne area."
+    },
+    {
+        "query": "What appears to be used exclusively in Newcastle and surrounding areas?",
+        "scores": [
+            0,
+            50,
+            0,
+            0,
+            0,
+            0,
+            100,
+            60,
+            0,
+            0
+        ],
+        "global_answer": "Grainger Market"
+    },
+    {
+        "query": "What language does \"hoy\" originate from?",
+        "scores": [
+            50,
+            80,
+            0,
+            0,
+            20,
+            20,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "No valid answer found."
+    },
+    {
+        "query": "Who has released official reconstructions of Doctor Who episodes?",
+        "scores": [
+            80,
+            95,
+            80,
+            0,
+            100,
+            95,
+            0,
+            90,
+            90,
+            0
+        ],
+        "global_answer": "The BBC, in collaboration with various production companies."
+    },
+    {
+        "query": "Who did the BBC work with to reconstruct some of The Invasion episodes?",
+        "scores": [
+            100,
+            90,
+            80,
+            90,
+            100,
+            100,
+            100,
+            50,
+            80,
+            90
+        ],
+        "global_answer": "The BBC worked with Cosgrove Hall, Theta-Sigma, and Big Finish to reconstruct some of The Invasion episodes."
+    },
+    {
+        "query": "What year was The Invasion originally shown?",
+        "scores": [
+            0,
+            0,
+            80,
+            0,
+            0,
+            100,
+            0,
+            50,
+            0,
+            0
+        ],
+        "global_answer": "The Invasion was originally shown in 1966."
+    },
+    {
+        "query": "What animation company worked on some of The Reign of Terror episodes?",
+        "scores": [
+            20,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            20
+        ],
+        "global_answer": "No information is available."
+    },
+    {
+        "query": "When was the Doctor Who series released on DVD?",
+        "scores": [
+            50,
+            60,
+            20,
+            80,
+            60,
+            0,
+            80,
+            0,
+            80,
+            0
+        ],
+        "global_answer": "No valid answer found in response."
+    },
+    {
+        "query": "Geographically speaking, where is California's north - south midway point in terms of latitude?",
+        "scores": [
+            80,
+            0,
+            20,
+            80,
+            40,
+            0,
+            20,
+            50,
+            60,
+            50
+        ],
+        "global_answer": "[No answer]"
+    },
+    {
+        "query": "How many miles south of San Jose is the north - south midway point located?",
+        "scores": [
+            0,
+            0,
+            20,
+            0,
+            60,
+            0,
+            20,
+            0,
+            80,
+            20
+        ],
+        "global_answer": "The location of the north-south midway point between San Jose and a location south of San Jose is not defined."
+    },
+    {
+        "query": "The term \"southern\" California usually refers to how many of the southern-most counties of the state?",
+        "scores": [
+            0,
+            60,
+            50,
+            50,
+            0,
+            50,
+            0,
+            0,
+            60,
+            0
+        ],
+        "global_answer": "8 southern-most counties."
+    },
+    {
+        "query": "Other than Point Conception, what landmark is used in the other definition of southern California?",
+        "scores": [
+            50,
+            0,
+            80,
+            50,
+            0,
+            0,
+            20,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "No valid answer found."
+    },
+    {
+        "query": "Point Conception is an example of a landmark among what boundary of southern California?",
+        "scores": [
+            0,
+            0,
+            0,
+            100,
+            0,
+            50,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "Point Conception is an example of a landmark among the Channel Islands."
+    },
+    {
+        "query": "What type of group is The Islamic State?",
+        "scores": [
+            90,
+            90,
+            0,
+            20,
+            0,
+            0,
+            0,
+            0,
+            0,
+            60
+        ],
+        "global_answer": "A militant Islamist extremist organization."
+    },
+    {
+        "query": "Who leads The Islamic State?",
+        "scores": [
+            20,
+            0,
+            0,
+            0,
+            50,
+            0,
+            0,
+            0,
+            0,
+            20
+        ],
+        "global_answer": "No valid information available."
+    },
+    {
+        "query": "How many people did the Islamic State control the territory of as of March 2015?",
+        "scores": [
+            50,
+            0,
+            50,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "I do not have information on the Islamic State's territory control as of March 2015."
+    },
+    {
+        "query": "What does the Islamic State lack from the international community?",
+        "scores": [
+            20,
+            40,
+            80,
+            0,
+            20,
+            0,
+            0,
+            0,
+            20,
+            20
+        ],
+        "global_answer": "A unified global strategy."
+    },
+    {
+        "query": "What did the Islamic State proclaim itself in 2014?",
+        "scores": [
+            100,
+            95,
+            80,
+            0,
+            100,
+            0,
+            0,
+            0,
+            20,
+            0
+        ],
+        "global_answer": "It proclaimed itself a caliphate."
+    },
+    {
+        "query": "The amount of land a country controls is its greatest what?",
+        "scores": [
+            0,
+            80,
+            0,
+            0,
+            0,
+            0,
+            50,
+            0,
+            60,
+            0
+        ],
+        "global_answer": "Unable to determine the answer based on the provided context."
+    },
+    {
+        "query": "Western Imperialism divided the globe according to which theory?",
+        "scores": [
+            60,
+            0,
+            20,
+            20,
+            0,
+            80,
+            0,
+            20,
+            50,
+            0
+        ],
+        "global_answer": "The partition of the world according to the theory of Western Imperialism is not a specific theory but rather the process of colonization and division of the globe among European powers."
+    },
+    {
+        "query": "Who suggested that imperialism was the \"highest\" form of capitalism?",
+        "scores": [
+            95,
+            60,
+            60,
+            80,
+            0,
+            20,
+            0,
+            60,
+            20,
+            80
+        ],
+        "global_answer": "Vladimir Lenin suggested that imperialism was the \"highest\" form of capitalism."
+    },
+    {
+        "query": "One country's authority over a number of others would constitute the original country as what?",
+        "scores": [
+            90,
+            90,
+            95,
+            0,
+            80,
+            0,
+            100,
+            0,
+            0,
+            100
+        ],
+        "global_answer": "The original country would be considered an imperial power."
+    },
+    {
+        "query": "Most imperialism was carried out using which method of transport?",
+        "scores": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            20,
+            0,
+            80,
+            40,
+            0
+        ],
+        "global_answer": "Maritime trade routes."
+    },
+    {
+        "query": "What year did Robert J. Shiller win an Economics Nobel prize?",
+        "scores": [
+            0,
+            0,
+            100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "No valid answer found."
+    },
+    {
+        "query": "What is the most important problem in the United States and elsewhere?",
+        "scores": [
+            80,
+            95,
+            0,
+            0,
+            0,
+            80,
+            95,
+            20,
+            0,
+            90
+        ],
+        "global_answer": "Economic inequality."
+    },
+    {
+        "query": "Persistent unemployment has what effect on long-term economic growth?",
+        "scores": [
+            90,
+            80,
+            0,
+            90,
+            20,
+            0,
+            0,
+            80,
+            0,
+            80
+        ],
+        "global_answer": "It hinders long-term economic growth."
+    },
+    {
+        "query": "What's one factor in eroding self-esteem?",
+        "scores": [
+            80,
+            80,
+            100,
+            0,
+            0,
+            80,
+            80,
+            80,
+            0,
+            50
+        ],
+        "global_answer": "Guiltily acknowledging a wrong or unjust act can lead to feelings of inadequacy."
+    },
+    {
+        "query": "Policies which reduce the inequality associated effects of unemployment support what type of growth?",
+        "scores": [
+            95,
+            80,
+            0,
+            0,
+            90,
+            80,
+            80,
+            90,
+            100,
+            80
+        ],
+        "global_answer": "Sustained economic growth."
+    },
+    {
+        "query": "What Universal trailer debuted during the Super Bowl?",
+        "scores": [
+            0,
+            0,
+            0,
+            0,
+            80,
+            0,
+            20,
+            0,
+            20,
+            0
+        ],
+        "global_answer": "I'm sorry, I don't have information about a Universal trailer debuting during the Super Bowl."
+    },
+    {
+        "query": "What Lionsgate trailer was shown during the Super Bowl?",
+        "scores": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            80
+        ],
+        "global_answer": "No information found."
+    },
+    {
+        "query": "Along with 10 Cloverfield Lane, what Paramount trailer appeared during the Super Bowl?",
+        "scores": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            80
+        ],
+        "global_answer": "I cannot provide information about a Paramount trailer that appeared during the Super Bowl, as the context does not contain enough information to generate a valid answer."
+    },
+    {
+        "query": "What was the subtitle of the Independence Day movie that had a trailer during the Super Bowl?",
+        "scores": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "No valid answers were generated."
+    },
+    {
+        "query": "What film did Lionsgate pay to have the trailer aired during the Super Bowl?",
+        "scores": [
+            0,
+            0,
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "What film did Lionsgate pay to have the trailer aired during the Super Bowl?"
+    },
+    {
+        "query": "Paramount paid fo, 10 Cloverfield Lane and which other film trailer to be aired during the game?",
+        "scores": [
+            0,
+            0,
+            0,
+            60,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "None found."
+    },
+    {
+        "query": "Universal Paid for The Secret Life of Pets and which other film trailer?",
+        "scores": [
+            80,
+            20,
+            0,
+            0,
+            0,
+            20,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "The Secret Life of Pets."
+    },
+    {
+        "query": "Disney paid for The Jungle Book, Alice Through the Looking Glass, and which other film trailer to be aired during the game?",
+        "scores": [
+            0,
+            0,
+            0,
+            20,
+            60,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "The query is incomplete as it lacks a crucial piece of information."
+    },
+    {
+        "query": "What famous July Fourth holiday movie did Fox pay to advertise a sequel of during the Super Bowl?",
+        "scores": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            20,
+            0,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "I couldn't find any relevant information to answer your question."
+    },
+    {
+        "query": "What movie company paid to have the next Jason Bourne movie ad shown during the Super Bowl?",
+        "scores": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            20
+        ],
+        "global_answer": "No valid answer found."
+    },
+    {
+        "query": "What company paid for a Super Bowl 50 ad to show a trailer of X-Men: Apocalypse?",
+        "scores": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            80,
+            0,
+            100
+        ],
+        "global_answer": "Lionsgate."
+    },
+    {
+        "query": "How many US states do no practice corporal punishment?",
+        "scores": [
+            90,
+            50,
+            80,
+            80,
+            60,
+            50,
+            100,
+            80,
+            60,
+            0
+        ],
+        "global_answer": "No valid answer found."
+    },
+    {
+        "query": "Where is corporal punishment practiced the most?",
+        "scores": [
+            0,
+            0,
+            20,
+            0,
+            0,
+            0,
+            50,
+            0,
+            0,
+            100
+        ],
+        "global_answer": "In some African and Asian countries, corporal punishment is still practiced in schools and homes."
+    },
+    {
+        "query": "Is corporal punishment increasing or declining in the South?",
+        "scores": [
+            50,
+            80,
+            80,
+            20,
+            80,
+            100,
+            0,
+            20,
+            80,
+            0
+        ],
+        "global_answer": "Corporal punishment is declining in the South."
+    },
+    {
+        "query": "What tool is used in corporal punishment?",
+        "scores": [
+            0,
+            0,
+            0,
+            100,
+            0,
+            0,
+            50,
+            0,
+            0,
+            0
+        ],
+        "global_answer": "A ruler or stick."
+    },
+    {
+        "query": "Where is corporal punishment usually performed these days?",
+        "scores": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            100,
+            0,
+            0,
+            0,
+            80
+        ],
+        "global_answer": "Corporal punishment is usually performed in private settings, such as homes or institutions."
+    },
+    {
+        "query": "How many Doctor Who episodes have been shown, in total?",
+        "scores": [
+            40,
+            80,
+            50,
+            80,
+            80,
+            0,
+            80,
+            20,
+            60,
+            40
+        ],
+        "global_answer": "No valid answer found."
+    },
+    {
+        "query": "What is the most common length of Doctor Who episodes?",
+        "scores": [
+            0,
+            0,
+            0,
+            20,
+            0,
+            20,
+            0,
+            20,
+            50,
+            0
+        ],
+        "global_answer": "Not applicable."
+    },
+    {
+        "query": "How many Doctor Who Christmas Specials have been shown?",
+        "scores": [
+            80,
+            60,
+            0,
+            20,
+            100,
+            60,
+            0,
+            80,
+            20,
+            40
+        ],
+        "global_answer": "No valid answer found in response."
+    },
+    {
+        "query": "How long was the longest Doctor Who Christmas Special?",
+        "scores": [
+            20,
+            0,
+            20,
+            0,
+            0,
+            40,
+            0,
+            60,
+            20,
+            0
+        ],
+        "global_answer": "No valid answer found."
+    },
+    {
+        "query": "In what year did Doctor Who begin being shown in HDTV?",
+        "scores": [
+            0,
+            40,
+            80,
+            80,
+            0,
+            0,
+            0,
+            0,
+            100,
+            0
+        ],
+        "global_answer": "No valid answer found in response."
+    }
+]

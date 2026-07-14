@@ -1,0 +1,12 @@
+BLEU Scores:
+Corpus-level BLEU-1 score: 0.1503
+
+BERTScore:
+Precision: 0.1354
+Recall: 0.1004
+F1: 0.1150
+
+ROUGE Scores:
+ROUGE-1 F1: 0.1148
+ROUGE-2 F1: 0.0489
+ROUGE-L F1: 0.1103

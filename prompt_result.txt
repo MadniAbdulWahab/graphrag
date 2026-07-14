@@ -1,0 +1,402 @@
+
+PROMPT: Extract entities and relationships from the following text in the form of triples. A triple should include a subject, predicate, and object. Return only the triples in correct format.Return only a list of triples and no other text, with each triple formatted as (subject, predicate, object).
+
+For example, if the text is:
+'OpenAI created ChatGPT, an AI language model, in 2020.'
+
+The output should be:
+(OpenAI, created, ChatGPT)
+(ChatGPT, is, AI language model)
+(ChatGPT, created in, 2020)
+
+Text: The Walking Dead ( season 8 ) - Wikipedia The Walking Dead ( season 8 ) Jump to : navigation , search The Walking Dead ( season 8 ) Promotional poster Starring Andrew Lincoln Norman Reedus Lauren Cohan Chandler Riggs Danai Gurira Melissa McBride Lennie James Alanna Masterson Josh McDermitt Christian Serratos Seth Gilliam Ross Marquand Jeffrey Dean Morgan Austin Amelio Tom Payne Xander Berkeley Khary Payton Steven Ogg Katelyn Nacon Pollyanna McIntosh Country of origin United States No. of episodes 9 Release Original network AMC Original release October 22 , 2017 ( 2017 - 10 - 22 ) --
+
+The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+
+RESPONSE FOR CHUNK 0: Extract entities and relationships from the following text in the form of triples. A triple should include a subject, predicate, and object. Return only the triples in correct format.Return only a list of triples and no other text, with each triple formatted as (subject, predicate, object).
+
+For example, if the text is:
+'OpenAI created ChatGPT, an AI language model, in 2020.'
+
+The output should be:
+(OpenAI, created, ChatGPT)
+(ChatGPT, is, AI language model)
+(ChatGPT, created in, 2020)
+
+Text: The Walking Dead ( season 8 ) - Wikipedia The Walking Dead ( season 8 ) Jump to : navigation, search The Walking Dead ( season 8 ) Promotional poster Starring Andrew Lincoln Norman Reedus Lauren Cohan Chandler Riggs Danai Gurira Melissa McBride Lennie James Alanna Masterson Josh McDermitt Christian Serratos Seth Gilliam Ross Marquand Jeffrey Dean Morgan Austin Amelio Tom Payne Xander Berkeley Khary Payton Steven Ogg Katelyn Nacon Pollyanna McIntosh Country of origin United States No. of episodes 9 Release Original network AMC Original release October 22, 2017 ( 2017 - 10 - 22 ) --
+( subject, predicate, object ) :
+( Andrew Lincoln, starring, The Walking Dead ( season 8 ) )
+( Norman Reedus, starring, The Walking Dead ( season 8 ) )
+( Lauren Cohan, starring, The Walking Dead ( season 8 ) )
+( Chandler Riggs, starring, The Walking Dead ( season 8 ) )
+( Danai Gurira, starring, The Walking Dead ( season 8 ) )
+( Melissa McBride, starring, The Walking Dead ( season 8 ) )
+( Lennie James, starring, The Walking Dead ( season 8 ) )
+( Alanna Masterson, starring, The Walking Dead ( season 8 ) )
+( Josh McDermitt, starring, The Walking Dead ( season 8 ) )
+( Christian Serratos, starring, The Walking Dead ( season 8 ) )
+( Seth Gilliam, starring, The Walking Dead ( season 8 ) )
+( Ross Marquand, starring, The Walking Dead ( season 8 ) )
+( Jeffrey Dean Morgan, starring, The Walking Dead ( season 8 ) )
+( Austin Amelio, starring, The Walking Dead ( season 8 ) )
+( Tom Payne, starring, The Walking Dead ( season 8 ) )
+( Xander Berkeley, starring, The Walking Dead ( season 8 ) )
+( Khary Payton, starring, The Walking Dead ( season 8 ) )
+( Steven Ogg, starring, The Walking Dead ( season 8 ) )
+( Katelyn Nacon, starring, The Walking Dead ( season 8 ) )
+( Pollyanna McIntosh, starring, The Walking Dead ( season 8 ) )
+( United States, country of origin, The Walking Dead ( season 8 ) )
+( 9, number of episodes, The Walking Dead ( season 8 ) )
+( AMC, original network, The Walking Dead ( season 8 ) )
+( October 22, 2017, release date, The Walking Dead ( season 8 ) )
+
+Here is the list of triples in the correct format:
+
+( The Walking Dead ( season 8 ), starring, Andrew Lincoln )
+( The Walking Dead ( season 8 ), starring, Norman Reedus )
+( The Walking Dead ( season 8 ), starring, Lauren Cohan )
+( The Walking Dead ( season 8 ), starring, Chandler Riggs )
+( The Walking Dead ( season 8 ), starring, Danai Gurira )
+( The Walking Dead ( season 8 ), starring, Melissa McBride )
+( The Walking Dead ( season 8 ), starring, Lennie James )
+( The Walking Dead ( season 8 ), starring, Alanna Masterson )
+( The Walking Dead ( season 8 ), starring, Josh McDermitt )
+( The Walking Dead ( season 8 ), starring, Christian Serratos )
+( The Walking Dead ( season 8 ), starring, Seth Gilliam )
+( The Walking Dead ( season 8 ), starring, Ross Marquand )
+( The Walking Dead ( season 8 ), starring, Jeffrey Dean Morgan )
+( The Walking Dead ( season 8 ), starring, Austin Amelio )
+( The Walking Dead ( season 8 ), starring, Tom Payne )
+( The Walking Dead ( season 8 ), starring, Xander Berkeley )
+( The Walking Dead ( season 8 ), starring, Khary Payton )
+( The Walking Dead ( season 8 ), starring, Steven Ogg )
+( The Walking Dead ( season 8 ), starring, Katelyn Nacon )
+( The Walking Dead ( season 8 ), starring, Pollyanna McIntosh )
+( The Walking Dead ( season 8 ), country of origin, United States )
+( The Walking Dead ( season 8 ), number of episodes, 9 )
+( The Walking Dead ( season 8 ), original network, AMC )
+( The Walking Dead ( season 8 ), release date, October 22, 2017 )  | 
+( Andrew Lincoln, starring, The Walking Dead ( season 8 ) )
+( Norman Reedus, starring, The Walking Dead ( season 8 ) )
+( Lauren Cohan, starring, The Walking Dead ( season 8 ) )
+( Chandler Riggs, starring, The Walking Dead ( season 8 ) )
+( Danai Gurira, starring, The Walking Dead ( season 8 ) )
+( Melissa McBride, starring, The Walking Dead ( season 8 ) )
+( Lennie James, starring, The Walking Dead ( season 8 ) )
+( Alanna Masterson, starring, The Walking Dead ( season 8 ) )
+( Josh McDermitt, starring, The Walking Dead ( season 8 ) )
+( Christian Serratos, starring, The Walking Dead ( season 8 ) )
+( Seth Gilliam, starring, The Walking Dead ( season 8 ) )
+( Ross Marquand, starring, The Walking Dead ( season 8 ) )
+( Jeffrey Dean Morgan, starring, The Walking Dead ( season 8 ) )
+( Austin Amelio, starring, The Walking Dead ( season 8 ) )
+( Tom Payne, starring, The Walking Dead ( season 8 ) )
+( Xander Berkeley, starring, The Walking Dead ( season 8 ) )
+( Khary Payton, starring, The Walking Dead ( season 8 ) )
+( Steven Ogg, starring, The Walking Dead ( season 8 ) )
+( Katelyn Nacon, starring, The Walking Dead ( season 8 ) )
+( Pollyanna McIntosh, starring, The Walking Dead ( season 8 ) )
+( United States, country of origin, The Walking Dead ( season 8 ) )
+( 9, number of episodes, The Walking Dead ( season 8 ) )
+( AMC, original network, The Walking Dead ( season 8 ) )
+( October 22, 2017, release date, The Walking Dead ( season 8 ) ) | 
+( The Walking Dead ( season 8 ), starring, Andrew Lincoln )
+( The Walking Dead ( season 8 ), starring, Norman Reedus )
+( The Walking Dead ( season 8 ), starring, Lauren Cohan )
+( The Walking Dead ( season 8 ), starring, Chandler Riggs )
+( The Walking Dead ( season 8 ), starring, Danai Gurira )
+( The Walking Dead ( season 8 ), starring, Melissa McBride )
+( The Walking Dead ( season 8 ), starring, Lennie James )
+( The Walking Dead ( season 8 ), starring, Alanna Masterson )
+( The Walking Dead ( season 8 ), starring, Josh McDermitt )
+( The Walking Dead ( season 8 ), starring, Christian Serratos )
+( The Walking Dead ( season 8 ), starring, Seth Gilliam )
+( The Walking Dead ( season 8 ), starring, Ross Marquand )
+( The Walking Dead ( season 8 ), starring, Jeffrey Dean Morgan )
+( The Walking Dead ( season 8 ), starring, Austin Amelio )
+( The Walking Dead ( season 8 ), starring, Tom Payne )
+( The Walking Dead ( season 8 ), starring, Xander Berkeley )
+( The Walking Dead ( season 8 ), starring, Khary Payton )
+( The Walking Dead (
+present ( present ) Season chronology ← Previous Season 7 List of The Walking Dead episodes The eighth season of The Walking Dead , an American post-apocalyptic horror television series on AMC , premiered on October 22 , 2017 , and will consist of 16 episodes split into two eight - episode parts , with the second part debuting on February 25 , 2018 . Developed for television by Frank Darabont , the series is based on the eponymous series of comic books by Robert Kirkman , Tony Moore , and Charlie Adlard .
+PROMPT: Extract entities and relationships from the following text in the form of triples. A triple should include a subject, predicate, and object. Return only the triples in correct format.Return only a list of triples and no other text, with each triple formatted as (subject, predicate, object).
+
+For example, if the text is:
+'OpenAI created ChatGPT, an AI language model, in 2020.'
+
+The output should be:
+(OpenAI, created, ChatGPT)
+(ChatGPT, is, AI language model)
+(ChatGPT, created in, 2020)
+
+Text: present ( present ) Season chronology ← Previous Season 7 List of The Walking Dead episodes The eighth season of The Walking Dead , an American post-apocalyptic horror television series on AMC , premiered on October 22 , 2017 , and will consist of 16 episodes split into two eight - episode parts , with the second part debuting on February 25 , 2018 . Developed for television by Frank Darabont , the series is based on the eponymous series of comic books by Robert Kirkman , Tony Moore , and Charlie Adlard .
+
+The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+
+RESPONSE FOR CHUNK 1: Extract entities and relationships from the following text in the form of triples. A triple should include a subject, predicate, and object. Return only the triples in correct format.Return only a list of triples and no other text, with each triple formatted as (subject, predicate, object).
+
+For example, if the text is:
+'OpenAI created ChatGPT, an AI language model, in 2020.'
+
+The output should be:
+(OpenAI, created, ChatGPT)
+(ChatGPT, is, AI language model)
+(ChatGPT, created in, 2020)
+
+Text: present ( present ) Season chronology ← Previous Season 7 List of The Walking Dead episodes The eighth season of The Walking Dead, an American post-apocalyptic horror television series on AMC, premiered on October 22, 2017, and will consist of 16 episodes split into two eight - episode parts, with the second part debuting on February 25, 2018. Developed for television by Frank Darabont, the series is based on the eponymous series of comic books by Robert Kirkman, Tony Moore, and Charlie Adlard.
+( ← Previous Season 7 ) The eighth season of The Walking Dead premiered on October 22, 2018, and consisted of 16 episodes, which were split into two parts : 8 episodes in the first part and 8 episodes in the second part, with the second part debuting on February 25, 2018. The first part of the season consisted of 8 episodes. The Walking Dead is a television series based on a comic book series of the same name, created by Robert Kirkman, Tony Moore, and Charlie Adlard. The show was developed for television by Frank Darabont. The eighth season of The Walking Dead is a post-apocalyptic horror television series on AMC. 
+
+The Walking Dead is a show that aired on AMC.
+( ← Previous Season 7 ) The Walking Dead is a television series based on a comic book series of the same name, created by Robert Kirkman, Tony Moore, and Charlie Adlard. 
+The Walking Dead is a television series based on a comic book series of the same name, created by Robert Kirkman, Tony Moore, and Charlie Adlard. 
+
+( ← Previous Season 7 ) The Walking Dead is a show that aired on AMC.
+The Walking Dead is a television series based on a comic book series of the same name, created by Robert Kirkman, Tony Moore, and Charlie Adlard. The eighth season of The Walking Dead is a post-apocalyptic horror television series on AMC. 
+The Walking Dead is a television series based on a comic book series of the same name, created by Robert Kirkman, Tony Moore, and Charlie Adlard.
+
+Here is the list of triples:
+( ← Previous Season 7, is, a season of The Walking Dead )
+( The Walking Dead, premiered on, October 22, 2017 )
+( The Walking Dead, will consist of, 16 episodes )
+( 16 episodes, split into, two eight - episode parts )
+( two eight - episode parts, with the second part debuting on, February 25, 2018 )
+( The Walking Dead, is developed for television by, Frank Darabont )
+( The Walking Dead, is based on, the eponymous series of comic books by Robert Kirkman, Tony Moore, and Charlie Adlard )
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC )
+( The Walking Dead, premiered on, October 22, 2018 )
+( The Walking Dead, consisted of, 16 episodes )
+( 16 episodes, were split into, two parts )
+( two parts, consist of, 8 episodes and 8 episodes )
+( The Walking Dead, is a television series )
+( The Walking Dead, is based on, a comic book series of the same name )
+( The Walking Dead, was created by, Robert Kirkman, Tony Moore, and Charlie Adlard )
+( The Walking Dead, is a show that aired on, AMC )
+( The Walking Dead, is a television series based on, a comic book series of the same name )
+( The eighth season of The Walking Dead, is a post - apocalyptic horror television series on, AMC )
+( The Walking Dead, premiered on, October 22, 2017 )
+( The Walking Dead, is a television series based on, a comic book series of the same name )
+( The Walking Dead, was developed for television by, Frank Darabont ) 
+( The Walking Dead, is a television series based on, a comic book series of the same name )
+( The Walking Dead, was created by, Robert Kirkman, Tony Moore, and Charlie Adlard ) 
+( The Walking Dead, is a television series based on, a comic book series of the same name ) 
+( The Walking Dead, is a show that aired on, AMC )
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC )
+( The Walking Dead, is a television series based on, a comic book series of the same name ) 
+( The Walking Dead, was developed for television by, Frank Darabont )
+( The Walking Dead, is a show that aired on, AMC ) 
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC ) 
+( The Walking Dead, is a television series based on, a comic book series of the same name ) 
+( The Walking Dead, was created by, Robert Kirkman, Tony Moore, and Charlie Adlard ) 
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC ) 
+( The Walking Dead, is a television series based on, a comic book series of the same name ) 
+( The Walking Dead, was developed for television by, Frank Darabont ) 
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC ) 
+( The Walking Dead, was created by, Robert Kirkman, Tony Moore, and Charlie Adlard ) 
+( The Walking Dead, is a show that aired on, AMC ) 
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC ) 
+( The Walking Dead, is a television series based on, a comic book series of the same name ) 
+( The Walking Dead, was developed for television by, Frank Darabont ) 
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC ) 
+( The Walking Dead, is a show that aired on, AMC ) 
+( The Walking Dead, was created by, Robert Kirkman, Tony Moore, and Charlie Adlard ) 
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC ) 
+( The Walking Dead, is a television series based on, a comic book series of the same name ) 
+( The Walking Dead, was developed for television by, Frank Darabont ) 
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC ) 
+( The Walking Dead, is a show that aired on, AMC ) 
+( The Walking Dead, was created by, Robert Kirkman, Tony Moore, and Charlie Adlard ) 
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC ) 
+( The Walking Dead, is a television series based on, a comic book series of the same name ) 
+( The Walking Dead, was developed for television by, Frank Darabont ) 
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC ) 
+( The Walking Dead, is a show that aired on, AMC ) 
+( The Walking Dead, was created by, Robert Kirkman, Tony Moore, and Charlie Adlard ) 
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC ) 
+( The Walking Dead, is a television series based on, a comic book series of the same name ) 
+( The Walking Dead, was developed for television by, Frank Darabont ) 
+( The Walking Dead, is a post - apocalyptic horror television series on, AMC ) 
+( The Walking Dead, is a show that aired on, AMC ) 
+( The Walking Dead, was created by, Robert Kirkman, Tony Moore, and Charlie Adlard ) 
+( The Walking Dead, is
+The executive producers are Kirkman , David Alpert , Scott M. Gimple , Greg Nicotero , Tom Luse , and Gale Anne Hurd , with Gimple as showrunner for the fifth consecutive season . The eighth season has received mostly positive reviews . This season adapts the `` All Out War '' story arc from the comics , with the survivors of the Alexandria Safe - Zone , the Hilltop , the Kingdom , and later the Scavengers taking on Negan ( Jeffrey Dean Morgan ) and the Saviors .
+PROMPT: Extract entities and relationships from the following text in the form of triples. A triple should include a subject, predicate, and object. Return only the triples in correct format.Return only a list of triples and no other text, with each triple formatted as (subject, predicate, object).
+
+For example, if the text is:
+'OpenAI created ChatGPT, an AI language model, in 2020.'
+
+The output should be:
+(OpenAI, created, ChatGPT)
+(ChatGPT, is, AI language model)
+(ChatGPT, created in, 2020)
+
+Text: The executive producers are Kirkman , David Alpert , Scott M. Gimple , Greg Nicotero , Tom Luse , and Gale Anne Hurd , with Gimple as showrunner for the fifth consecutive season . The eighth season has received mostly positive reviews . This season adapts the `` All Out War '' story arc from the comics , with the survivors of the Alexandria Safe - Zone , the Hilltop , the Kingdom , and later the Scavengers taking on Negan ( Jeffrey Dean Morgan ) and the Saviors .
+
+The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+
+RESPONSE FOR CHUNK 2: Extract entities and relationships from the following text in the form of triples. A triple should include a subject, predicate, and object. Return only the triples in correct format.Return only a list of triples and no other text, with each triple formatted as (subject, predicate, object).
+
+For example, if the text is:
+'OpenAI created ChatGPT, an AI language model, in 2020.'
+
+The output should be:
+(OpenAI, created, ChatGPT)
+(ChatGPT, is, AI language model)
+(ChatGPT, created in, 2020)
+
+Text: The executive producers are Kirkman, David Alpert, Scott M. Gimple, Greg Nicotero, Tom Luse, and Gale Anne Hurd, with Gimple as showrunner for the fifth consecutive season. The eighth season has received mostly positive reviews. This season adapts the `` All Out War '' story arc from the comics, with the survivors of the Alexandria Safe - Zone, the Hilltop, the Kingdom, and later the Scavengers taking on Negan ( Jeffrey Dean Morgan ) and the Saviors.
+(OpenAI, created, ChatGPT)
+(ChatGPT, is, AI language model)
+(ChatGPT, created in, 2020)
+(The executive producers, are, Kirkman)
+(The executive producers, are, David Alpert)
+(The executive producers, are, Scott M. Gimple)
+(The executive producers, are, Greg Nicotero)
+(The executive producers, are, Tom Luse)
+(The executive producers, are, Gale Anne Hurd)
+(Gimple, is, showrunner)
+(Gimple, for, the fifth consecutive season)
+(The eighth season, has, received mostly positive reviews)
+(The eighth season, adapts, All Out War story arc)
+(The survivors, of, Alexandria Safe-Zone)
+(The survivors, of, Hilltop)
+(The survivors, of, Kingdom)
+(The survivors, of, Scavengers)
+(The survivors, of, Negan and Saviors) 
+(Taking on, Negan, and Saviors)
+(Negan, is, Jeffrey Dean Morgan) 
+(All Out War story arc, from, comics) 
+(Hilltop, is, location) 
+(Kingdom, is, location) 
+(Alexandria Safe-Zone, is, location) 
+(Scavengers, is, location) 
+(Saviors, is, group) 
+(Negan, is, leader) 
+(Tom Luse, is, executive producer) 
+(Gale Anne Hurd, is, executive producer) 
+(David Alpert, is, executive producer) 
+(Greg Nicotero, is, executive producer) 
+(Scott M. Gimple, is, showrunner) 
+(Kirkman, is, executive producer) 
+(The survivors, are, taking on, Negan and Saviors)
+(The survivors, are, from, Alexandria Safe-Zone, Hilltop, Kingdom, Scavengers)
+(Showrunner, is, Gimple) 
+(Season, is, eighth)
+(Consecutive, is, fifth)
+(Reviews, are, mostly positive) 
+(Season, adapts, All Out War story arc)
+((Alexandria Safe-Zone, Hilltop, Kingdom, Scavengers), is, group) 
+(Season, has, received mostly positive reviews)
+((Alexandria Safe-Zone, Hilltop, Kingdom, Scavengers), are, survivors) 
+(Gimple, is, executive producer) 
+(Kingdom, is, part of, Alexandria Safe-Zone, Hilltop, Scavengers)
+((Alexandria Safe-Zone, Hilltop, Kingdom, Scavengers), are, taking on, Negan and Saviors)
+((Alexandria Safe-Zone, Hilltop, Kingdom, Scavengers), is, location) 
+(Kingdom, is, part of, Alexandria Safe-Zone, Hilltop, Scavengers) 
+(Scavengers, is, part of, Alexandria Safe-Zone, Hilltop, Kingdom)
+(Hilltop, is, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Scavengers, are, part of, Alexandria Safe-Zone, Hilltop, Kingdom) 
+(Kingdom, are, part of, Alexandria Safe-Zone, Hilltop, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Kingdom, are, part of, Alexandria Safe-Zone, Hilltop, Scavengers) 
+(Scavengers, are, part of, Alexandria Safe-Zone, Hilltop, Kingdom)
+(Kingdom, is, part of, Alexandria Safe-Zone, Hilltop, Scavengers) 
+(Hilltop, is, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Scavengers, are, part of, Alexandria Safe-Zone, Hilltop, Kingdom)
+(Hilltop, is, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Kingdom, is, part of, Alexandria Safe-Zone, Hilltop, Scavengers)
+(Scavengers, is, part of, Alexandria Safe-Zone, Hilltop, Kingdom)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, is, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Scavengers, are, part of, Alexandria Safe-Zone, Hilltop, Kingdom)
+(Kingdom, is, part of, Alexandria Safe-Zone, Hilltop, Scavengers)
+(Scavengers, is, part of, Alexandria Safe-Zone, Hilltop, Kingdom)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Kingdom, are, part of, Alexandria Safe-Zone, Hilltop, Scavengers)
+(Hilltop, is, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Kingdom, are, part of, Alexandria Safe-Zone, Hilltop, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Scavengers, is, part of, Alexandria Safe-Zone, Hilltop, Kingdom)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, is, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Kingdom, are, part of, Alexandria Safe-Zone, Hilltop, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Scavengers, are, part of, Alexandria Safe-Zone, Hilltop, Kingdom)
+(Hilltop, is, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Kingdom, are, part of, Alexandria Safe-Zone, Hilltop, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Scavengers, are, part of, Alexandria Safe-Zone, Hilltop, Kingdom)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria Safe-Zone, Kingdom, Scavengers)
+(Hilltop, are, part of, Alexandria
+Contents ( hide ) 1 Cast 1.1 Main cast 1.1. 1 Starring 1.1. 2 Also starring 1.2 Supporting cast 1.2. 1 Alexandria Safe - Zone 1.2. 2 The Hilltop 1.2. 3 The Saviors 1.2. 4 The Kingdom 1.2. 5 Oceanside 1.2. 6 The Scavengers 1.2. 7 Miscellaneous 2 Production 3 Episodes 4 Release 5 Reception 5.1 Critical response 5.2 Ratings 6 References 7 External links Cast ( edit ) Main article : List of The Walking Dead ( TV series ) characters Main cast ( edit ) The primary characters of the eighth season include ( from left to right
+PROMPT: Extract entities and relationships from the following text in the form of triples. A triple should include a subject, predicate, and object. Return only the triples in correct format.Return only a list of triples and no other text, with each triple formatted as (subject, predicate, object).
+
+For example, if the text is:
+'OpenAI created ChatGPT, an AI language model, in 2020.'
+
+The output should be:
+(OpenAI, created, ChatGPT)
+(ChatGPT, is, AI language model)
+(ChatGPT, created in, 2020)
+
+Text: Contents ( hide ) 1 Cast 1.1 Main cast 1.1. 1 Starring 1.1. 2 Also starring 1.2 Supporting cast 1.2. 1 Alexandria Safe - Zone 1.2. 2 The Hilltop 1.2. 3 The Saviors 1.2. 4 The Kingdom 1.2. 5 Oceanside 1.2. 6 The Scavengers 1.2. 7 Miscellaneous 2 Production 3 Episodes 4 Release 5 Reception 5.1 Critical response 5.2 Ratings 6 References 7 External links Cast ( edit ) Main article : List of The Walking Dead ( TV series ) characters Main cast ( edit ) The primary characters of the eighth season include ( from left to right
+
+The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+
+RESPONSE FOR CHUNK 3: Extract entities and relationships from the following text in the form of triples. A triple should include a subject, predicate, and object. Return only the triples in correct format.Return only a list of triples and no other text, with each triple formatted as (subject, predicate, object).
+
+For example, if the text is:
+'OpenAI created ChatGPT, an AI language model, in 2020.'
+
+The output should be:
+(OpenAI, created, ChatGPT)
+(ChatGPT, is, AI language model)
+(ChatGPT, created in, 2020)
+
+Text: Contents ( hide ) 1 Cast 1.1 Main cast 1.1. 1 Starring 1.1. 2 Also starring 1.2 Supporting cast 1.2. 1 Alexandria Safe - Zone 1.2. 2 The Hilltop 1.2. 3 The Saviors 1.2. 4 The Kingdom 1.2. 5 Oceanside 1.2. 6 The Scavengers 1.2. 7 Miscellaneous 2 Production 3 Episodes 4 Release 5 Reception 5.1 Critical response 5.2 Ratings 6 References 7 External links Cast ( edit ) Main article : List of The Walking Dead ( TV series ) characters Main cast ( edit ) The primary characters of the eighth season include ( from left to right
+Negan ( Jeffrey Dean Morgan )
+Ezekiel ( Khary Payton )
+Carol ( Melissa McBride )
+Morgan Jones ( Lennie James ) 
+Morgan Jones's wife, Helen ( Katelyn Nacon ) 
+Michonne ( Danai Gurira ) 
+Rosita ( Christian Serratos ) 
+Daryl ( Norman Reedus ) 
+Eugene Porter ( Josh Hutcherson ) 
+Gabriel ( Seth Gilliam ) 
+Jerry ( Cooper Holloway ) 
+Tara ( Alanna Masterson ) 
+Dwight ( Austin Amelio ) 
+Simon ( Steven Ogg ) 
+Hilltop 2.0 ( Pollyanna McIntosh ) 
+Gregory ( Xander Berkeley ) 
+Siddiq ( Avi Nash ) 
+Sasha ( Sonequa Martin-Green ) 
+Hilltop 2.0 ( Pollyanna McIntosh ) 
+Hilltop 2.0 ( Pollyanna McIntosh ) 
+Hilltop 2.0 ( Pollyanna McIntosh ) 
+Hilltop 2.0 ( Pollyanna McIntosh ) 
+Hilltop 2.0 ( Pollyanna McIntosh ) 
+Hilltop 2.0 ( Pollyanna McIntosh ) 
+Hilltop 2.0 ( Pollyanna McIntosh ) 
+Hilltop 2.0 ( Pollyanna McIntosh ) 
+Hilltop 2.0 ( Pollyanne McIntosh ) 
+Also starring ( edit ) The following people appear in multiple episodes : ( list ) ( edit ) 
+Hilltop 2.0 ( Pollyanna McIntosh ) 
+Jadis ( Pollyanna McIntosh ) 
+Magnificent Seven ( 2016 ) 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
