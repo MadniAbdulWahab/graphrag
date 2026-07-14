@@ -15,20 +15,9 @@ The project uses the SQuAD dataset as its test bed. My main goal was to understa
 
 ## Pipeline
 
-The system follows this sequence:
+![End-to-end GraphRAG pipeline from source documents to a global answer](images/graphrag_flowchart.png)
 
-```text
-SQuAD contexts
-    -> overlapping text chunks
-    -> entity types, entities, and relationships
-    -> entity summaries
-    -> NetworkX knowledge graph
-    -> Louvain communities
-    -> community summaries
-    -> semantic, dense, or hybrid retrieval
-    -> chunk-level candidate answers
-    -> one global answer
-```
+*End-to-end workflow covering knowledge-graph construction, community summarization, query-time retrieval, answer scoring, and global answer generation.*
 
 ### Dataset preparation
 
@@ -190,4 +179,3 @@ The January 2025 report captured my initial query-time implementation and its fi
 - Cached extraction results and summary embeddings for repeated experiments
 - Retrieval evaluation with Recall@k and Mean Reciprocal Rank
 - A direct comparison with a text-only RAG baseline on the same question set
-
